@@ -151,15 +151,16 @@
     <ClInclude Include="customer.h" />
     <ClInclude Include="date.h" />
     <ClInclude Include="employee.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemList.h" />
     <ClInclude Include="manager.h" />
-    <ClInclude Include="menu.h" />
-    <ClInclude Include="product.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cart.cpp" />
     <ClCompile Include="date.cpp" />
-    <ClCompile Include="menu.cpp" />
-    <ClCompile Include="product.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemList.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

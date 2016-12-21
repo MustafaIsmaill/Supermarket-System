@@ -5,20 +5,18 @@
 
 class ItemList
 {
-    public:
-         ItemList();
-        int getsize();
-        void additemfirst(Item neww);
-        void additemlast(Item neww);
-        void insertitem(int i,Item neww);
-        void deleteitem(int i);
-        Item& operator[](int i);
-
-
-    private:
-        int Itemcount;
-        Item* header;
-
+private:
+	int listSize;
+	Item* header;
+public:
+    ItemList();
+    int getSize();
+    void addItem(Item neww);
+//  void additemlast(Item neww);
+//  void insertitem(int i,Item neww);
+    void deleteitem(int i);
+    Item& operator[](int i);
+	void displayMenu(ItemList);
 };
 
 #endif // ITEMLIST_H

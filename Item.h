@@ -1,28 +1,28 @@
 #ifndef ITEM_H
 #define ITEM_H
-#include<string>
+
 #include<iostream>
 using namespace std;
 
 
 class Item
 {
-    friend class ItemList;
-    public:
-Item();
-        Item(int i,string n);
-        Item(int i,string n,Item* ne);
-        void setnext(Item *st);
+private:
+	int code,qty;
+	string name;
+	Item *next;
+
+public:
+	friend class ItemList;
+        Item(int i,string n, int q);
+        Item(int i,string n,int q, Item* ne);
+        void setnext(Item *i);
         Item* getnext();
         int getid();
         string getname();
-        friend ostream& operator<<(ostream& os,const Item &i);
-
-
-    private:
-        int ID;
-        string name;
-        Item* next;
+		int getQty();
+		void setQty();
+		friend ostream& operator<<(ostream& os, const Item &st);
 
 };
 
