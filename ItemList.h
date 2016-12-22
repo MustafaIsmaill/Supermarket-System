@@ -5,12 +5,13 @@
 
 class ItemList
 {
-private:
+protected:
 	int listSize;
 	Item* header;
 public:
+//	friend class cart;
     ItemList();
-    int getSize();
+	inline int getSize() { return listSize; }
     void addItem(Item neww);
 //  void additemlast(Item neww);
 //  void insertitem(int i,Item neww);

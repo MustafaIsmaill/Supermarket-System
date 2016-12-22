@@ -1,16 +1,22 @@
 #include "Item.h"
 #include<string>
+#include <sstream>
+using namespace std;
 
-Item::Item(int i,string n, int q)
+Item::Item(int i,double c, string n)
 {
-	qty = q;
+	cartQty = 0;
+	qty = 1;
+	cost = c;
     code=i;
     name=n;
     next=NULL;
 }
-Item::Item(int i,string n,int q, Item* ne)
+Item::Item(int i,double c, string n, int q, Item* ne)
 {
-	qty = q;
+//	cartQty = q;
+	cost = c;
+	qty =q;
     code=i;
     name=n;
     next=ne;
@@ -18,22 +24,10 @@ Item::Item(int i,string n,int q, Item* ne)
 void Item::setnext(Item* ne){
 	next=ne;
 }
-Item* Item::getnext(){
-	return next;
-}
-string Item::getname(){
-	return name;
-}
-int Item::getid(){
-	return code;
-}
-int Item::getQty() {
-	return qty;
-}
 ostream& operator<<(ostream& os, const Item &item) {
-	os << "Item Code: " << item.code << "  " << "Name: " << item.name << "  Qty: " << item.qty << endl;
+	os << "Name: " << item.name << "  Cost: " << item.cost << " EGP" << "  qty: " << item.qty << endl;
 	return os;
 }
-void Item::setQty() {
-	qty++;
+void Item::setQty(int q) {
+	qty = q;
 }

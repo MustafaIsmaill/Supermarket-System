@@ -7,23 +7,28 @@ using namespace std;
 
 class Item
 {
-private:
-	int code,qty;
+protected:
+	int code,qty,cartQty;
+	double cost;
 	string name;
 	Item *next;
 
 public:
 	friend class ItemList;
-        Item(int i,string n, int q);
-        Item(int i,string n,int q, Item* ne);
+		Item() {};
+        Item(int i,double c, string n);
+        Item(int i,double c, string n,int q, Item* ne);
         void setnext(Item *i);
-        Item* getnext();
-        int getid();
-        string getname();
-		int getQty();
-		void setQty();
+		inline double getCost() { return cost; }
+		inline void setName(string n) { name = n; }
+		inline Item* getnext() { return next; }
+		inline int getid() { return code; }
+		inline string getname() { return name; }
+		inline int getQty() { return qty; }
+		inline int getCqty() { return cartQty; }
+		void setCqty(int q) { cartQty = q; }
+		void setQty(int q);
 		friend ostream& operator<<(ostream& os, const Item &st);
-
 };
 
 #endif // ITEM_H

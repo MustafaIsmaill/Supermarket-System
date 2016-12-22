@@ -1,4 +1,5 @@
 #include "ItemList.h"
+#include <string>
 
 ItemList::ItemList(){
 	header = NULL;
@@ -51,7 +52,7 @@ void ItemList::deleteitem(int id)
 void ItemList::addItem(Item neww) {
 	if (header == NULL)
 	{
-		header = new Item(neww.getid(), neww.getname(),neww.getQty(), neww.getnext());
+		header = new Item(neww.getid(),neww.getCost(), neww.getname(),neww.getQty(), neww.getnext());
 		listSize++;
 	}
 	else {
@@ -67,21 +68,20 @@ void ItemList::addItem(Item neww) {
 			}
 		}
 		if (count == 0) {
-			header = new Item(neww.getid(), neww.getname(), neww.getQty(), header);
+			header = new Item(neww.getid(), neww.getCost(), neww.getname(), neww.getQty(), header);
 			listSize++;
 		}
 		else {
-			currentItem->setQty();
+			cout << "Error: \"" << neww.getname() << "\" already exists" << endl << endl;
 		}
 		
 	}
 }
-int ItemList::getSize() {
-	return listSize;
-}
 void ItemList::displayMenu(ItemList L) {
 	for (int i = 0; i < L.getSize(); i++) {
-		cout << L[i] << endl;
+		if (L[i].getQty() > 0) {
+			cout << L[i] << endl;
+		}
 	}
 }
 /*void ItemList::insertitem(int i,Item neww){
