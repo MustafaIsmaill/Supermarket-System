@@ -14,7 +14,7 @@ Item::Item(int i,double c, string n)
 }
 Item::Item(int i,double c, string n, int q, Item* ne)
 {
-//	cartQty = q;
+//	cartQty++;
 	cost = c;
 	qty =q;
     code=i;
@@ -25,9 +25,11 @@ void Item::setnext(Item* ne){
 	next=ne;
 }
 ostream& operator<<(ostream& os, const Item &item) {
-	os << "Name: " << item.name << "  Cost: " << item.cost << " EGP" << "  qty: " << item.qty << endl;
+	if (item.cartQty > 0) {
+		os << "Name: " << item.name << "  Cost: " << item.cost << " EGP" << " Cart qty " << item.cartQty << endl;
+	}
+	else {
+		os << "Name: " << item.name << " ||  Cost: " << item.cost << " EGP  " << "||  Qty in stock " << item.qty << endl;
+	}
 	return os;
-}
-void Item::setQty(int q) {
-	qty = q;
 }

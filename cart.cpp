@@ -8,52 +8,60 @@ cart::cart() {
 	cartSize = 0;
 }
 void cart::addItem(ItemList l){
-	cout << "Please enter the name of the products you want to add, and enter 0 when finished. Also enter the qty of each" << endl;
-	int q;
-	for (int i = 0; i < l.getSize(); i++) {
-		int count = 0, j;
+	cout << "Please enter the name of the products you want to add, and enter 0 when finished." << endl;
+	for (int i = 0; i <= itemQty; i++) {
+		int count = 0, j = 0;
 		string choice;
 		getline(cin, choice);
-		for (j = 0; j < l.getSize(); j++) {
-			if (l[j].getname() ==  choice) {
-				break;
+		for (j = 0; j < l.getSize() ; j++) {
+			if (l[j].getname() ==  choice && l[j].getQty()>0) {
+				goto label;
 			}
-			if (j == l.getSize()-1 && choice != "0") {
-				cout << "Item not available" << endl;
+			if (j == l.getSize() - 1 && choice != "0") {
+				cout <<"Not found in stock" << endl;
 				count++;
 				i--;
 			}
 		}
+	label:
 		if (choice == "0") { i--; break; }
-		else if (count != 1) {
+		else if (count == 0) {
 			if (cartHeader == NULL)
 			{
-				l[j].setCqty(l[j].getCqty() + 1);
-				l[j].setQty(l[j].getQty() - 1);
-				cartHeader = new Item(l[j].getid(), l[j].getCost(), l[j].getname(), l[j].getQty(), l[j].getnext());
+				cartHeader = new Item(l[j].getid(), l[j].getCost(), l[j].getname(), l[j].cartQty, l[j].getnext());
 				cartSize++;
+				cartHeader->cartQty++;
+//				cartHeader->qty += l[j].getQty();
+				l[j].qty--;
+				itemQty++;
 			}
 			else {
-				int count = 0;
+				int count1 = 0;
 				Item *currentItem = cartHeader;
 				for (int i = 0; i < cartSize; i++) {
 					if (currentItem->getid() != l[j].getid()) {
 						currentItem = currentItem->getnext();
 					}
-					else {
-						count++;
+					else if(currentItem->getid() == l[j].getid()){
+						count1++;
+						i--;
 						break;
 					}
 				}
-				if (count == 0) {
-					l[j].setCqty(l[j].getCqty() + 1);
-					l[j].setQty(l[j].getQty() - 1);
-					cartHeader = new Item(l[j].getid(), l[j].getCost(), l[j].getname(), l[j].getQty(), cartHeader);
+				if (count1 == 0) {
+					cartHeader = new Item(l[j].getid(), l[j].getCost(), l[j].getname(), l[j].cartQty, cartHeader);
 					cartSize++;
+					cartHeader->cartQty++;
+//					cartHeader->qty += l[j].getQty();
+					l[j].qty--;
+					itemQty++;
 				}
 				else {
-					l[j].setCqty(l[j].getCqty() + 1);
-					l[j].setQty(l[j].getQty() - 1);
+//					j--;
+					currentItem->cartQty++;
+					l[j].qty--;
+//					cartHeader->qty += l[j].getQty();
+					itemQty++;
 					i--;
 				}
 

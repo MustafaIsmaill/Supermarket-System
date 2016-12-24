@@ -26,6 +26,8 @@ int main(){
 	cart c;
 	c.addItem(I1);
 	c.displayCart(c);
+	cout << endl << "menu" << endl;
+	I1.displayMenu(I1);
 
 	return 0;
 }

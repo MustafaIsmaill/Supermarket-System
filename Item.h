@@ -15,6 +15,7 @@ protected:
 
 public:
 	friend class ItemList;
+	friend class cart;
 		Item() {};
         Item(int i,double c, string n);
         Item(int i,double c, string n,int q, Item* ne);
@@ -26,8 +27,8 @@ public:
 		inline string getname() { return name; }
 		inline int getQty() { return qty; }
 		inline int getCqty() { return cartQty; }
-		void setCqty(int q) { cartQty = q; }
-		void setQty(int q);
+		inline void setCqty(int q) { cartQty = q; }
+		inline void setQty(int q) { qty = q; }
 		friend ostream& operator<<(ostream& os, const Item &st);
 };
 
