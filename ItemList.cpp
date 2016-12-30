@@ -36,19 +36,6 @@ void ItemList::deleteitem(int id)
 		}
 	}
 }
-/*void ItemList::additemlast(Item neww) {
-	Item *currentItem = header;
-	if (currentItem != NULL) {
-		while (currentItem->getnext() != NULL) {
-			currentItem = currentItem->getnext();
-		}
-		currentItem->setnext(new Item(neww.getid(), neww.getname(),neww.getQty(), neww.getnext()));
-	}
-	else {
-		header = new Item(neww.getid(), neww.getname(),neww.getQty(), neww.getnext());
-	}
-	listSize++;
-}*/
 void ItemList::addItem(Item neww) {
 	if (header == NULL)
 	{
@@ -84,36 +71,3 @@ void ItemList::displayMenu(ItemList L) {
 		}
 	}
 }
-/*void ItemList::insertitem(int i,Item neww){
-if(header==NULL)
-{
-neww.setnext(NULL);
-header = new Item(neww.getid(),neww.getname());
-listSize++;
-
-}
-else{
-Item* ptr;
-ptr=header;
-if(i==0)
-{
-additemfirst(neww);
-}
-else if(i==1)
-{
-neww.setnext(header);
-header=new Item(neww.getid(),neww.getname(),neww.getnext());
-
-}
-else{
-Item* temp=header;;
-for(int j=0;j<i-2;j++)
-{
-temp=temp->getnext();
-}
-neww.setnext(temp->getnext());
-temp->setnext(new Item(neww.getid(), neww.getname(), neww.getnext()));
-}
-
-}
-}*/

@@ -15,7 +15,7 @@ void cart::addItem(ItemList l){
 		getline(cin, choice);
 		for (j = 0; j < l.getSize() ; j++) {
 			if (l[j].getname() ==  choice && l[j].getQty()>0) {
-				goto label;
+				break;
 			}
 			if (j == l.getSize() - 1 && choice != "0") {
 				cout <<"Not found in stock" << endl;
@@ -23,7 +23,7 @@ void cart::addItem(ItemList l){
 				i--;
 			}
 		}
-	label:
+//	label:
 		if (choice == "0") { i--; break; }
 		else if (count == 0) {
 			if (cartHeader == NULL)
@@ -70,9 +70,13 @@ void cart::addItem(ItemList l){
 	}
 }
 void cart::displayCart(cart c) {
+	cout << endl;
+	double total = 0;
 	for (int i = 0; i < c.getCartSize(); i++) {
 		cout << c[i] << endl;
+		total += (c[i].cartQty * c[i].cost);
 	}
+	cout << "Total is: " << total << " EGP"<< endl;
 }
 Item& cart::operator[](int i) {
 	Item *ptr = cartHeader;
@@ -80,4 +84,7 @@ Item& cart::operator[](int i) {
 		ptr = ptr->getnext();
 	}
 	return *ptr;
+}
+void cart::removeItem(Item name) {
+	
 }

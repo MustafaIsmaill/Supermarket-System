@@ -26,7 +26,7 @@ void Item::setnext(Item* ne){
 }
 ostream& operator<<(ostream& os, const Item &item) {
 	if (item.cartQty > 0) {
-		os << "Name: " << item.name << "  Cost: " << item.cost << " EGP" << " Cart qty " << item.cartQty << endl;
+		os << "Name: " << item.name << "  ||  Cost: " << item.cost << " EGP  " << "||  Cart qty " << item.cartQty << endl;
 	}
 	else {
 		os << "Name: " << item.name << " ||  Cost: " << item.cost << " EGP  " << "||  Qty in stock " << item.qty << endl;
