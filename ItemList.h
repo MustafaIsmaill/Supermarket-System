@@ -16,7 +16,7 @@ public:
     ItemList();
 	inline int getSize() { return listSize; }
     Item& operator[](int i);
-	void displayMenu(ItemList);
+	void displayMenu();
 };
 
 #endif // ITEMLIST_H

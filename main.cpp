@@ -1,38 +1,72 @@
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+
+
 #include <iostream>
 #include "ItemList.h"
 #include "cart.h"
 #include <string>
+#include <sstream>
 #include "manager.h"
+#include <fstream>
+#include <stdlib.h>
 using namespace std;
 
+double char2Double(char c) {
+	istringstream ss(c);
+	double n;
+	ss >> n;
+	return n;
+}
+string char2Str(char c) {
+	stringstream ss;
+	string s;
+	ss << c;
+	ss >> s;
+	return s;
+}
+char* str2Char(string s) {
+	char *arr = new char[s.size() + 1];
+	arr[s.size()] = 0;
+	memcpy(arr, s.c_str(), s.size());
+	return arr;
+}
+
 int main(){
-	Item Chipsy(4, 5.5 ,"Chipsy");
-	Item Pepsi(3, 6, "Pepsi");
-	Item Milk (2, 3, "Milk");
-	Item Zabado(1, 8.5, "Zabado");
-	Item Twix(5, 6, "Twix");
-	Twix.setQty(12);
-	Zabado.setQty(4);
-	Pepsi.setQty(10);
-	Milk.setQty(5);
-	ItemList I1;
+	ItemList list;
+	ifstream in("products.txt");
+	ofstream out("output.txt");
+	int lines = 0;
+	string line;
+	ifstream myfile("products.txt");
+	int count = 0;
+	Item n;
+	while (getline(myfile, line, ' ')) {
+		++lines;
+		if (lines == 1) {
+			count = 0;
+			continue;
+		}
+		count++;
+		if (count == 1) { n.setcode(atoi(line.c_str())) ; }
+		if (count == 2) { n.setcost(stod(line)); }
+		if (count == 3) { n.setName(line) ; }
+		if (count == 4) {
+			n.setQty(atoi(line.c_str()));
+			list.addItem(n);
+		}
+		if (count == 5) {
+			count = 0;
+		}
+	}
 
-	I1.addItem(Chipsy);	
-	I1.addItem(Pepsi);
-	I1.addItem(Milk);
-	I1.addItem(Zabado);
-	I1.addItem(Twix);
-//	I1.deleteitem(3);
-//	I1.deleteitem(5);
-
-	cout << "		***Menu***" << endl;
-	I1.displayMenu(I1);
-	cout << endl << "		***Cart***" << endl;
+	list.displayMenu();
 	cart c;
-	c.addItem(I1);
-	c.displayCart(c);
-//	cout << endl << "***Menu***" << endl;
-//	I1.displayMenu(I1);
+	c.addItem(list);
 
+	c.displayCart();
+	cout << endl;
 	return 0;
 }
+
+#endif

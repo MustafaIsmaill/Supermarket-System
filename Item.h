@@ -16,10 +16,14 @@ protected:
 public:
 	friend class ItemList;
 	friend class cart;
+	friend class manager;
 		Item() {};
         Item(int i,double c, string n);
+		Item(int i, double c, string n, int q);
         Item(int i,double c, string n,int q, Item* ne);
         void setnext(Item *i);
+		inline void setcode(int code1) { code = code1; }
+		inline void setcost(double c) { cost = c; }
 		inline double getCost() { return cost; }
 		inline void setName(string n) { name = n; }
 		inline Item* getnext() { return next; }

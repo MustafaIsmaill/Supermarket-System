@@ -64,10 +64,12 @@ void ItemList::addItem(Item neww) {
 		
 	}
 }
-void ItemList::displayMenu(ItemList L) {
-	for (int i = 0; i < L.getSize(); i++) {
-		if (L[i].getQty() > 0) {
-			cout << L[i] << endl;
+void ItemList::displayMenu() {
+	Item *currentItem = header;
+	for (int i = 0; i < listSize; i++) {
+		if (currentItem->getQty() > 0) {
+			cout << *currentItem << endl;
+			currentItem= currentItem->getnext();
 		}
 	}
 }

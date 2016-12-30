@@ -10,7 +10,7 @@ public:
 	void addItem(ItemList);
 	inline int getQty() { return itemQty;}
 	inline int getCartSize() { return cartSize; }
-	void displayCart(cart);
+	void displayCart();
 	void removeItem(Item i );
 	Item& operator[](int i);
 };

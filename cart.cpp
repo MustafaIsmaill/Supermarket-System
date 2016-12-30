@@ -69,12 +69,14 @@ void cart::addItem(ItemList l){
 		}
 	}
 }
-void cart::displayCart(cart c) {
+void cart::displayCart() {
 	cout << endl;
 	double total = 0;
-	for (int i = 0; i < c.getCartSize(); i++) {
-		cout << c[i] << endl;
-		total += (c[i].cartQty * c[i].cost);
+	Item *currentItem = cartHeader;
+	for (int i = 0; i < cartSize; i++) {
+		cout << *currentItem << endl;
+		total += (currentItem->cartQty*currentItem->cost);
+		currentItem = currentItem->getnext();
 	}
 	cout << "Total is: " << total << " EGP"<< endl;
 }

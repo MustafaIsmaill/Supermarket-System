@@ -21,6 +21,15 @@ Item::Item(int i,double c, string n, int q, Item* ne)
     name=n;
     next=ne;
 }
+Item::Item(int i, double c, string n, int q) {
+	code = i;
+	cost = c;
+	name = n;
+	qty = q;
+	cartQty = 0;
+	next = NULL;
+}
+
 void Item::setnext(Item* ne){
 	next=ne;
 }
