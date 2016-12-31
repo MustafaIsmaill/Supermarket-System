@@ -1,3 +1,6 @@
-﻿  main.cpp
+﻿  person.cpp
+  manager.cpp
+  main.cpp
+  Generating Code...
   APproject.vcxproj -> C:\Users\musta\Supermarket-System\x64\Debug\APproject.exe
   APproject.vcxproj -> C:\Users\musta\Supermarket-System\x64\Debug\APproject.pdb (Full PDB)

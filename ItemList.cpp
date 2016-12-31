@@ -65,6 +65,7 @@ void ItemList::addItem(Item neww) {
 	}
 }
 void ItemList::displayMenu() {
+//	cout << "                     -Menu-" << endl;
 	Item *currentItem = header;
 	for (int i = 0; i < listSize; i++) {
 		if (currentItem->getQty() > 0) {

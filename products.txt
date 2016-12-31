@@ -1,6 +1,6 @@
- 1 7.5 Chipsy 1 
- 2 6 Pepsi 10 
- 3 10 Milk 9 
- 4 8.5 Zabado 4 
- 5 6 Twix 12 
- 6 9.5 Sprite 20 
+ 1 7.5 Chipsy 120 
+ 2 6 Pepsi 497 
+ 3 10 Milk 181 
+ 4 8.5 Zabado 200 
+ 5 6 Twix 312 
+ 6 9.5 Sprite 212 

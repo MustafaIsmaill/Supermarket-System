@@ -8,23 +8,40 @@ cart::cart() {
 	cartSize = 0;
 }
 void cart::addItem(ItemList l){
+	cout << "---------------------------------------------------------------------------------" << endl;
 	cout << "Please enter the name of the products you want to add, and enter 0 when finished." << endl;
-	for (int i = 0; i <= itemQty; i++) {
+	cout << "---------------------------------------------------------------------------------" << endl;
+		for (int i = 0; i <= itemQty; i++) {
 		int count = 0, j = 0;
 		string choice;
 		getline(cin, choice);
-		for (j = 0; j < l.getSize() ; j++) {
-			if (l[j].getname() ==  choice && l[j].getQty()>0) {
+		for (j = 0; j < l.getSize(); j++) {
+			if (l[j].getname() == choice && l[j].getQty() > 0) {
 				break;
 			}
 			if (j == l.getSize() - 1 && choice != "0") {
-				cout <<"Not found in stock" << endl;
+				cout << "Not found in stock" << endl;
 				count++;
 				i--;
 			}
 		}
-//	label:
-		if (choice == "0") { i--; break; }
+		if (choice == "0") {
+			string finalChoice;
+			cout << "--------------------------------------------------------------------------------------------" << endl;
+			cout << "If you want to remove an item type \"delete\", if you want to proceed to checkout type \"yes\"" << endl;
+			cout << "--------------------------------------------------------------------------------------------" << endl;
+			getline(cin, finalChoice);
+			if (finalChoice == "yes") {
+				i--; break;
+			}
+			else if (finalChoice == "delete") {
+				int test=0;
+				string newName;
+				cout << "Enter the name of the item you want to remove from cart" << endl;
+				getline(cin, newName);
+				removeItem(newName);
+			}
+		}
 		else if (count == 0) {
 			if (cartHeader == NULL)
 			{
@@ -87,6 +104,15 @@ Item& cart::operator[](int i) {
 	}
 	return *ptr;
 }
-void cart::removeItem(Item name) {
-	
+void cart::removeItem(string name) {
+	Item *currentItem = cartHeader;
+	for (int i = 0; i < cartSize; i++) {
+		if (currentItem->getname() == name) {
+			currentItem->cartQty--;
+			break;
+		}
+		else {
+			currentItem = currentItem->getnext();
+		}
+	}
 }

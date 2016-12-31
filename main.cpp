@@ -11,7 +11,6 @@
 #include <fstream>
 #include <stdlib.h>
 using namespace std;
-
 double char2Double(char c) {
 	istringstream ss(c);
 	double n;
@@ -33,15 +32,14 @@ char* str2Char(string s) {
 }
 
 int main(){
+	manager Mahmoud("Mahmoud");
 	ItemList list;
-	ifstream in("products.txt");
-	ofstream out("output.txt");
-	int lines = 0;
+	int lines = 0; 
 	string line;
-	ifstream myfile("products.txt");
+	ifstream in("products.txt");
 	int count = 0;
 	Item n;
-	while (getline(myfile, line, ' ')) {
+	while (getline(in, line, ' ')) { // reads from file, tokens the file each time it finds a space a saves the token in string line
 		++lines;
 		if (lines == 1) {
 			count = 0;
@@ -53,19 +51,29 @@ int main(){
 		if (count == 3) { n.setName(line) ; }
 		if (count == 4) {
 			n.setQty(atoi(line.c_str()));
-			list.addItem(n);
+			Mahmoud.additem(n, list);
 		}
 		if (count == 5) {
 			count = 0;
 		}
 	}
 
-	list.displayMenu();
+	cout << "Hello, here's our menu :)" << endl << endl;
+	list.displayMenu(); 
 	cart c;
-	c.addItem(list);
-
+	c.addItem(list); 
 	c.displayCart();
 	cout << endl;
+//	list.deleteitem(1); //the function works with the item's ID
+//	Mahmoud.setQty("Zabado", list, 5000); 
+	ofstream out;
+	out.open("products.txt");
+	for (int i = 0; i < list.getSize(); i++) {
+		out << " " << list[i].getid() << " " << list[i].getCost() << " " << list[i].getname() << " " << list[i].getQty() << " \n";
+	}
+	out.close();
+	in.close();
+	cout << "Byebye :)" << endl << endl;
 	return 0;
 }
 

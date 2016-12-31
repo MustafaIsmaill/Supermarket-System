@@ -1,4 +1,5 @@
 #include "Item.h"
+#include "ItemList.h"
 #include<string>
 #include <sstream>
 using namespace std;
@@ -35,10 +36,10 @@ void Item::setnext(Item* ne){
 }
 ostream& operator<<(ostream& os, const Item &item) {
 	if (item.cartQty > 0) {
-		os << "Name: " << item.name << "  ||  Cost: " << item.cost << " EGP  " << "||  Cart qty " << item.cartQty << endl;
+		os << "Name: " << item.name << "  ||  Cost: " << item.cost << " EGP  " << "||  Qty " << item.cartQty << endl;
 	}
 	else {
-		os << "Name: " << item.name << " ||  Cost: " << item.cost << " EGP  " << "||  Qty in stock " << item.qty << endl;
+		os << item.name << " ||  Cost: " << item.cost << " EGP  " << "||  Qty in stock " << item.qty << endl;
 	}
 	return os;
 }

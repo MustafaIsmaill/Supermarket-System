@@ -8,7 +8,8 @@ using namespace std;
 class Item
 {
 protected:
-	int code,qty,cartQty;
+	int code,cartQty;
+	int qty;
 	double cost;
 	string name;
 	Item *next;

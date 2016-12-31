@@ -11,6 +11,6 @@ public:
 	inline int getQty() { return itemQty;}
 	inline int getCartSize() { return cartSize; }
 	void displayCart();
-	void removeItem(Item i );
+	void removeItem(string i );
 	Item& operator[](int i);
 };
