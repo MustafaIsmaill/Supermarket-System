@@ -37,7 +37,7 @@ void cart::addItem(ItemList l){
 			else if (finalChoice == "delete") {
 				string newName;
 				int test = 0;
-				cout << "Enter the name of the item you want to remove from cart" << endl;
+				cout << "Enter the name of the item you want to remove from cart, and enter 0 when finished" << endl;
 				for (int g = 0; g < itemQty; g++) {
 					getline(cin, newName);
 					if (newName == "0") { i--; test++; break; }
@@ -83,10 +83,8 @@ void cart::addItem(ItemList l){
 					itemQty++;
 				}
 				else {
-//					j--;
 					currentItem->cartQty++;
 					l[j].qty--;
-//					cartHeader->qty += l[j].getQty();
 					itemQty++;
 					i--;
 				}

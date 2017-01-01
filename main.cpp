@@ -10,7 +10,13 @@
 #include "worker.h"
 #include <fstream>
 #include <stdlib.h>
+#include <ctime>
 using namespace std;
+void displayDate() {
+	time_t now = time(0);
+	char* dt = ctime(&now);
+	cout << "Date and time: " << dt << endl;
+}
 double char2Double(char c) {
 	istringstream ss(c);
 	double n;
@@ -32,7 +38,7 @@ char* str2Char(string s) {
 }
 
 int main(){
-	worker Mahmoud("Mahmoud");
+	worker Mahmoud("Youssef Hussein");
 	ItemList list;
 	int lines = 0; 
 	string line;
@@ -73,6 +79,7 @@ int main(){
 	}
 	out.close();
 	in.close();
+	displayDate();
 	Mahmoud.printInfo();
 	cout << "Goodbye" << endl << endl;
 	return 0;

@@ -15,18 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="customer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="employee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bill.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="date.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -44,9 +32,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="date.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

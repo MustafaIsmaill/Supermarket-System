@@ -146,11 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="bill.h" />
     <ClInclude Include="cart.h" />
-    <ClInclude Include="customer.h" />
-    <ClInclude Include="date.h" />
-    <ClInclude Include="employee.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemList.h" />
     <ClInclude Include="worker.h" />
@@ -158,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cart.cpp" />
-    <ClCompile Include="date.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemList.cpp" />
     <ClCompile Include="main.cpp" />
