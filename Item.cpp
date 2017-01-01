@@ -39,7 +39,7 @@ ostream& operator<<(ostream& os, const Item &item) {
 		os << "Name: " << item.name << "  ||  Cost: " << item.cost << " EGP  " << "||  Qty " << item.cartQty << endl;
 	}
 	else {
-		os << item.name << " ||  Cost: " << item.cost << " EGP  " << "||  Qty in stock " << item.qty << endl;
+		os <<"Name: "<< item.name << " ||  Cost: " << item.cost << " EGP  " << "||  Qty " << item.qty << endl;
 	}
 	return os;
 }

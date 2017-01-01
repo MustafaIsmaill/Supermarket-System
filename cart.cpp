@@ -35,11 +35,22 @@ void cart::addItem(ItemList l){
 				i--; break;
 			}
 			else if (finalChoice == "delete") {
-				int test=0;
 				string newName;
+				int test = 0;
 				cout << "Enter the name of the item you want to remove from cart" << endl;
-				getline(cin, newName);
-				removeItem(newName);
+				for (int g = 0; g < itemQty; g++) {
+					getline(cin, newName);
+					if (newName == "0") { i--; test++; break; }
+					else {
+						removeItem(newName);
+						for (int k = 0; k < l.getSize(); k++) {
+							if (l[k].getname() == newName) {
+								l[k].qty++;
+							}
+						}
+					}
+				}
+				if (test > 0) { break; }
 			}
 		}
 		else if (count == 0) {
@@ -48,7 +59,6 @@ void cart::addItem(ItemList l){
 				cartHeader = new Item(l[j].getid(), l[j].getCost(), l[j].getname(), l[j].cartQty, l[j].getnext());
 				cartSize++;
 				cartHeader->cartQty++;
-//				cartHeader->qty += l[j].getQty();
 				l[j].qty--;
 				itemQty++;
 			}
@@ -69,7 +79,6 @@ void cart::addItem(ItemList l){
 					cartHeader = new Item(l[j].getid(), l[j].getCost(), l[j].getname(), l[j].cartQty, cartHeader);
 					cartSize++;
 					cartHeader->cartQty++;
-//					cartHeader->qty += l[j].getQty();
 					l[j].qty--;
 					itemQty++;
 				}
