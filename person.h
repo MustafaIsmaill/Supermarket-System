@@ -7,12 +7,8 @@ using namespace std;
 
 class Person {
 public:
-	Person();
-	virtual ~Person();
 	Person(string);
-	void setName(string);
-	inline string getName() { return name; }
-	void printInfo();
+	virtual void printInfo() = 0;
 
 protected:
 	string name;

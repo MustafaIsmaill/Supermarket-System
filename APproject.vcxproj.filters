@@ -27,9 +27,6 @@
     <ClInclude Include="date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -40,6 +37,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="person.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="worker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClCompile Include="person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="manager.cpp">
+    <ClCompile Include="worker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -10,7 +10,6 @@ protected:
 	Item* header;
 
 public:
-//	friend class Item;
 	void addItem(Item neww);
 	void deleteitem(int i);
 	friend class manager;

@@ -99,6 +99,7 @@ void cart::displayCart() {
 	cout << endl;
 	double total = 0;
 	Item *currentItem = cartHeader;
+	cout << "***Reciept***" << endl;
 	for (int i = 0; i < cartSize; i++) {
 		cout << *currentItem << endl;
 		total += (currentItem->cartQty*currentItem->cost);

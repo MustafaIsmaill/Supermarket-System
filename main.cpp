@@ -7,7 +7,7 @@
 #include "cart.h"
 #include <string>
 #include <sstream>
-#include "manager.h"
+#include "worker.h"
 #include <fstream>
 #include <stdlib.h>
 using namespace std;
@@ -32,7 +32,7 @@ char* str2Char(string s) {
 }
 
 int main(){
-	manager Mahmoud("Mahmoud");
+	worker Mahmoud("Mahmoud");
 	ItemList list;
 	int lines = 0; 
 	string line;
@@ -63,7 +63,7 @@ int main(){
 	cart c;
 	c.addItem(list); 
 	c.displayCart();
-	cout << endl;
+	cout << endl << endl;
 //	list.deleteitem(1); //the function works with the item's ID
 //	Mahmoud.setQty("Zabado", list, 5000); 
 	ofstream out;
@@ -73,7 +73,8 @@ int main(){
 	}
 	out.close();
 	in.close();
-	cout << "Byebye :)" << endl << endl;
+	Mahmoud.printInfo();
+	cout << "Goodbye" << endl << endl;
 	return 0;
 }
 
